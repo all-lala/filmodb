@@ -1,3 +1,6 @@
+alala_moviedb:
+    resource: "@AlalaMoviedbBundle/Resources/config/routing.yml"
+    prefix:   /moviedb
+
 app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+    resource: "@AppBundle/Resources/config/routing.yml"
