@@ -1,0 +1,3 @@
+alala_moviedb_homepage:
+    path:     /
+    defaults: { _controller: AlalaMoviedbBundle:Default:index }
