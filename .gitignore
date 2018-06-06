@@ -46,3 +46,6 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
+# Node modules
+/node_modules/*
