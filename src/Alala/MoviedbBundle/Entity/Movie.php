@@ -52,7 +52,7 @@ class Movie
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="MoviePeople", mappedBy="movie")
+     * @ORM\OneToMany(targetEntity="MoviePeople", mappedBy="movie", cascade={"persist"})
      */
     private $moviePeoples;
     
@@ -164,6 +164,39 @@ class Movie
     public function getDescription()
     {
         return $this->description;
+    }
+    
+    /**
+     * Get MoviePeoples
+     * 
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getMoviePeoples(){
+        return $this->moviePeoples;
+    }
+    
+    /**
+     * Add people
+     * 
+     * @param MoviePeople $moviePeople
+     * @return \Alala\MoviedbBundle\Entity\Movie
+     */
+    public function addMoviePeoples(MoviePeople $moviePeople){
+        $this->moviePeoples->add($moviePeople);
+        
+        return $this;
+    }
+    
+    /**
+     * Remove people
+     * 
+     * @param MoviePeople $moviePeople
+     * @return \Alala\MoviedbBundle\Entity\Movie
+     */
+    public function removeMoviePeople(MoviePeople $moviePeople){
+        $this->moviePeoples->removeElement($moviePeople);
+        
+        return $this;
     }
 }
 

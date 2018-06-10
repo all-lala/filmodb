@@ -5,3 +5,9 @@ alala_movie_bundle.movie.list:
 alala_movie_bundle.movie.search:
     path: /movie/search
     defaults: { _controller: AlalaMoviedbBundle:Movie:search }
+
+alala_movie_bundle.movie.show:
+    path: /movie/show/{id}
+    defaults: { _controller: AlalaMoviedbBundle:Movie:show }
+    requirements:
+        id: '\d+'

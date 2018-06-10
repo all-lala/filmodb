@@ -54,5 +54,53 @@ class MoviePeople
     {
         return $this->id;
     }
+    /**
+     * @return \Alala\MoviedbBundle\Entity\Movie
+     */
+    public function getMovie()
+    {
+        return $this->movie;
+    }
+
+    /**
+     * @return \Alala\MoviedbBundle\Entity\Movie
+     */
+    public function getPeople()
+    {
+        return $this->people;
+    }
+
+    /**
+     * @return \Alala\MoviedbBundle\Entity\Movie
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param \Alala\MoviedbBundle\Entity\Movie $movie
+     */
+    public function setMovie($movie)
+    {
+        $this->movie = $movie;
+    }
+
+    /**
+     * @param \Alala\MoviedbBundle\Entity\Movie $people
+     */
+    public function setPeople($people)
+    {
+        $this->people = $people;
+    }
+
+    /**
+     * @param \Alala\MoviedbBundle\Entity\Movie $job
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+    }
+
 }
 

@@ -1,0 +1,92 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block content %}
+	<div class="container">
+    	<div class="card">
+            <div class="card-body">
+                {{ form_start(form) }}
+                <h5 class="card-title">{{ form_widget(form.title) }}</h5>
+    			<label>Date de sortie</label>{{ form_widget(form.year, {attr : {class : 'form-control'}}) }}
+    			<label>Id Tmdb</label>{{ form_widget(form.tmdbId, {attr : {class : 'form-control'}}) }}
+    			<label>Descrtiption</label>{{ form_widget(form.description, {attr : {class : 'form-control'}}) }}
+    			<label>Liste des personnes associées au film: </label>
+    			<div id="moviePeoplesPrototype" data-prototype="{{ form_widget(form.moviePeoples.vars.prototype.people)|e }}"></div>
+                <div id="movieJobPrototype" data-prototype="{{ form_widget(form.moviePeoples.vars.prototype.job)|e('html_attr') }}"></div>
+    			<ul class="list-unstyled" id="moviePeoplesList" data-prototype="{{ form_widget(form.moviePeoples.vars.prototype)|e('html_attr') }}">
+                    {% for key, people in form.moviePeoples %}
+                    <li>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            	<span class="input-group-text" id="inputGroup-sizing-default">Personne</span>
+                            </div>
+                            	{{ form_widget(people.people, {attr : {class : 'form-control'}}) }}
+                        	<div class="input-group-prepend input-group-append">
+                            	<span class="input-group-text" id="inputGroup-sizing-default">Métier</span>
+                            </div>
+                            	{{ form_widget(people.job, {attr : {class : 'form-control'}}) }}
+                            <div class="input-group-append">
+	                            <button class="btn btn-danger removePeopleBtn">-</button>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}                    
+                </ul>
+                <button id="addPeopleBtn" class="btn btn-primary">Ajouter une perssone</button>
+                {{ form_widget(form.submit, {'label': 'Valider', attr: {class: 'btn btn-success'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	$(function(){
+		var moviePeoplesList = $('#moviePeoplesList')
+		var moviePeoplesPrototype = $('#moviePeoplesPrototype').get(0).dataset.prototype
+		var movieJobPrototype = $('#movieJobPrototype').get(0).dataset.prototype
+		var addPeopleBtn = $('#addPeopleBtn')
+		var newid = $('#moviePeoplesList').children().length
+		
+		var baseNewMoviePeoples = 
+'<div class="input-group mb-3">' +
+'	<div class="input-group-prepend">' +
+'    	<span class="input-group-text" id="inputGroup-sizing-default">Personne</span>' +
+'   </div>' +
+moviePeoplesPrototype +
+'	<div class="input-group-prepend input-group-append">' +
+'		<span class="input-group-text" id="inputGroup-sizing-default">Métier</span>' +
+'	</div>' +
+movieJobPrototype +
+'    <div class="input-group-append">' +
+'        <button class="btn btn-danger removePeopleBtn">-</button>' +
+'   </div>' +
+'</div>';
+		
+		addPeopleBtn.click(function(e){
+			e.preventDefault()
+			var protypempl = baseNewMoviePeoples
+			var newItem = $('<li></li>')
+			protypempl = protypempl.replace(/__name__/g, newid);
+			console.log(protypempl)
+			newItem.append(protypempl)
+			newItem.find('select').addClass('form-control')
+			moviePeoplesList.append(newItem)
+			setRemovePeopleBtn()
+			newid++
+		})
+		
+		var setRemovePeopleBtn = function(){
+			$('.removePeopleBtn').off('click')
+			$('.removePeopleBtn').click(function(e){
+				e.preventDefault()
+				console.log($(this).parents('li'))
+				$(this).parents('li').remove()
+			})
+		}
+
+		setRemovePeopleBtn()
+	})
+	</script>
+{% endblock %}

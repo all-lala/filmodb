@@ -165,5 +165,15 @@ class People
     {
         return $this->description;
     }
+    
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
 }
 

@@ -26,7 +26,7 @@
                     <tr v-for="(movie, key) in movies" :key="key">
                         <td>{{ movie.title }}</td>
                         <td>{{ movie.year}}</td>
-                        <td><a :href="url.show + '/' + movie.id">Voir</a></td>
+                        <td><a :href="url.show + movie.id">Voir</a></td>
                     </tr>
                 </tbody>
             </table>

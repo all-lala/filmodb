@@ -9,6 +9,7 @@ Encore
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
     
+    // Basic Js
     .addEntry('custom', './web/assets/js/custom.js')
 
     // allow legacy applications to use $/jQuery as a global variable
@@ -26,6 +27,7 @@ Encore
     // enable VueJs
     .enableVueLoader()
     
+    // Movies Vue
     .addEntry('movieTable', './web/assets/vuejs/movieTable.js')
 ;
 
