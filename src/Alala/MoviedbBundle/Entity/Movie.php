@@ -24,6 +24,13 @@ class Movie
     /**
      * @var string
      *
+     * @ORM\Column(name="mo_tmdb_id", type="string", length=255, unique=true)
+     */
+    private $tmdbId;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="mo_title", type="string", length=255)
      */
     private $title;
@@ -63,6 +70,30 @@ class Movie
         return $this->id;
     }
 
+    /**
+     * Set tmdbId
+     *
+     * @param string $tmdbId
+     *
+     * @return Movie
+     */
+    public function setTmdbId($tmdbId)
+    {
+        $this->tmdbId = $tmdbId;
+        
+        return $this;
+    }
+    
+    /**
+     * Get tmdbId
+     *
+     * @return string
+     */
+    public function getTmdbId()
+    {
+        return $this->tmdbId;
+    }
+    
     /**
      * Set title
      *

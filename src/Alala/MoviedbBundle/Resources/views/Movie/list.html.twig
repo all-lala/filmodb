@@ -1,0 +1,15 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block content %}
+	<div id="movielist"
+		data-list="{{ path('alala_movie_bundle.movie.search') }}"
+		data-add=""
+		data-remove=""
+	>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('build/movieTable.js') }}"></script>
+{% endblock %}

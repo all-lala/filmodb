@@ -1,3 +1,7 @@
-alala_moviedb_homepage:
-    path:     /
-    defaults: { _controller: AlalaMoviedbBundle:Default:index }
+alala_movie_bundle.movie.list:
+    path: /movie/
+    defaults: { _controller: AlalaMoviedbBundle:Movie:list }
+    
+alala_movie_bundle.movie.search:
+    path: /movie/search
+    defaults: { _controller: AlalaMoviedbBundle:Movie:search }
