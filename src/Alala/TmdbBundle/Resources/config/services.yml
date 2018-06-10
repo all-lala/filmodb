@@ -1,0 +1,15 @@
+services:
+    console.command.alala_tmbd.movie:
+        class: Alala\TmdbBundle\Command\TmbdMovieCommand
+        arguments: 
+            $configs: []
+            $tmdbQuery: '@alala_tmdb.query'
+            $localMovie: null
+            
+        tags:
+            -  { name: console.command }
+            
+    alala_tmdb.query:
+        class: Alala\TmdbBundle\Service\TmdbQuery
+        arguments:
+            $configs: []

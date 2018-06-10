@@ -1,5 +1,6 @@
 // webpack.config.js
 var Encore = require('@symfony/webpack-encore');
+const { VueLoaderPlugin } = require('vue-loader')
 
 Encore
     // the project directory where all compiled assets will be stored
@@ -21,13 +22,14 @@ Encore
 
     // show OS notifications when builds finish/fail
     .enableBuildNotifications()
-
-    // create hashed filenames (e.g. app.abc123.css)
-    // .enableVersioning()
-
-    // allow sass/scss files to be processed
-    // .enableSassLoader()
+    
+    // enable VueJs
+    .enableVueLoader()
+    
+    .addEntry('movieTable', './web/assets/vuejs/movieTable.js')
 ;
 
 // export the final configuration
 module.exports = Encore.getWebpackConfig();
+
+module.exports.plugins.push(new VueLoaderPlugin());

@@ -3,7 +3,6 @@
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Alala\MoviedbBundle\AlalaMoviedbBundle;
 
 class AppKernel extends Kernel
 {
@@ -19,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Alala\MoviedbBundle\AlalaMoviedbBundle(),
+            new Alala\TmdbBundle\AlalaTmdbBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

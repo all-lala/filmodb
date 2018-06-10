@@ -65,3 +65,8 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+#tmdb api
+alala_tmdb:
+    apikey: 238646fa3d05a3854bae73c662614ad8
+    movie_parser_service: alala_moviedb.movie_loader_tmdb
