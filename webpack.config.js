@@ -29,6 +29,7 @@ Encore
     
     // Movies Vue
     .addEntry('movieTable', './web/assets/vuejs/movieTable.js')
+    .addEntry('peopleTable', './web/assets/vuejs/peopleTable.js')
 ;
 
 // export the final configuration

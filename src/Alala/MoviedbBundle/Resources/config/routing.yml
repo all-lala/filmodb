@@ -11,3 +11,17 @@ alala_movie_bundle.movie.show:
     defaults: { _controller: AlalaMoviedbBundle:Movie:show }
     requirements:
         id: '\d+'
+
+alala_movie_bundle.people.list:
+    path: /people/
+    defaults: { _controller: AlalaMoviedbBundle:People:list }
+    
+alala_movie_bundle.people.search:
+    path: /people/search
+    defaults: { _controller: AlalaMoviedbBundle:People:search }
+
+alala_movie_bundle.people.show:
+    path: /people/show/{id}
+    defaults: { _controller: AlalaMoviedbBundle:People:show }
+    requirements:
+        id: '\d+'

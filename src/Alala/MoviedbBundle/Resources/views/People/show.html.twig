@@ -1,0 +1,30 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block content %}
+	<div class="container">
+    	<div class="card">
+            <div class="card-body">
+                {{ form_start(form) }}
+                <h5 class="card-title">{{ form.firstname.vars.value }} {{ form.lastname.vars.value }}</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_widget(form.firstname , {attr : {class : 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_widget(form.lastname , {attr : {class : 'form-control'}}) }}
+                        </div>
+                    </div>
+        			<label>Année de naissance</label>{{ form_widget(form.birthdate, {attr : {class : 'form-control'}}) }}
+        			<label>Descrtiption</label>{{ form_widget(form.description, {attr : {class : 'form-control'}}) }}
+                </div>
+                {{ form_widget(form.submit, {'label': 'Valider', attr: {class: 'btn btn-success'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}

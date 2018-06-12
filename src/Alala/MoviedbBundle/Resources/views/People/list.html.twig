@@ -1,0 +1,16 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block content %}
+	<div id="peoplelist"
+		data-list="{{ path('alala_movie_bundle.people.search') }}"
+		data-add=""
+		data-remove=""
+		data-show="{{ path('alala_movie_bundle.people.show', {id: 0}) }}"
+	>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('build/peopleTable.js') }}"></script>
+{% endblock %}
