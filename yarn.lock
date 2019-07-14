@@ -22,7 +22,7 @@
     friendly-errors-webpack-plugin "^1.6.1"
     fs-extra "^2.0.0"
     loader-utils "^1.1.0"
-    lodash ">=3.5 <5"
+    lodash ">=4.17.13 <5"
     pkg-up "^1.0.0"
     pretty-error "^2.1.1"
     resolve-url-loader "^2.0.2"
@@ -3086,7 +3086,7 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-mem@^1.1.0:
+mem@^4.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
   dependencies:
@@ -3535,7 +3535,7 @@ os-locale@^2.0.0:
   dependencies:
     execa "^0.7.0"
     lcid "^1.0.0"
-    mem "^1.1.0"
+    mem "^4.0.0"
 
 os-tmpdir@^1.0.0, os-tmpdir@^1.0.1:
   version "1.0.2"

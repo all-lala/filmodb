@@ -85,7 +85,7 @@ class TmbdMovieCommand extends Command
     }
     
     /**
-     * Affiche les querstions
+     * Affiche les questions
      * @param array $questionsList exemple :
         'parameters' => [
             'language' => [
